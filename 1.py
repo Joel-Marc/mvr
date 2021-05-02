@@ -44,7 +44,7 @@ def popt(inp):
     te = re.split('\n|�', soup1.get_text())
 # te = [x for x in te if x != '�' and x != '']
     # print(te)
-    for i in range(0, 5, 2):
+    for i in range(0, 3, 2):
         try:
             # print("")
             # print(te[i], te[i + 1], lf[int(i/2)])
@@ -69,9 +69,9 @@ for i in y:
 
 # print(finlist)
 
-for k in finlist:
-    for za, zu in k.items():
-        print(za, zu)
+# for k in finlist:
+#     for za, zu in k.items():
+#         print(za, zu)
 
 
 @app.route('/')
