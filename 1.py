@@ -58,7 +58,6 @@ def popt(inp):
     finlist.append(intdict)
 
 
-cmd = ['ls', '/mnt/c/Users/joelm/Downloads/ENTERTAINMENT/MOVIES/test']
 x = check_output(r'dir "C:\Users\joelm\Downloads\ENTERTAINMENT\MOVIES\test" /B ', shell=True).decode()
 y = x.split('\n')
 y = [x for x in y if x != '']
