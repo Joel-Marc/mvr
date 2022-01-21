@@ -7,4 +7,4 @@
 
 
 ## Screen Shot : 
-![Rel Schema](https://github.com/Joel-Marc/mvr/blob/main/sct1.png)
+![Rel Schema](https://github.com/Joel-Marc/mvr/blob/main/pic1.png)
