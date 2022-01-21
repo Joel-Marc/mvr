@@ -2,6 +2,7 @@
 
 - Gets the local directory name list by running the dir command .
 - For each Name web scrapes using BS4 library . 
+- Finds the Avg of the Scores , sorts the results in Descending order
 - A Flask App is used to display the acquired data .
 
 

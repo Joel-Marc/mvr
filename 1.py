@@ -19,9 +19,9 @@ def popt(inp):
     r = requests.get(URL)
 
     soup = BeautifulSoup(r.content, 'html5lib')
-
-    table = soup.find_all("div", "Ap5OSd", limit=1)
-
+    # print(soup)
+    table = soup.find_all("div", "Ey4n2", limit=1)
+# Ey4n2 ; BNeawe s3v9rd AP7Wnd ; BNeawe vvjwJb AP7Wnd ; kCrY
     x = ''
     for i in table:
         x = x+str(i)
@@ -44,29 +44,45 @@ def popt(inp):
     te = re.split('\n|�', soup1.get_text())
 # te = [x for x in te if x != '�' and x != '']
     # print(te)
+    sp = []
     for i in range(0, 3, 2):
         try:
             # print("")
             # print(te[i], te[i + 1], lf[int(i/2)])
             intdict[te[i+1]] = te[i]
             intdict[str('link'+str(int(i/2)))] = lf[int(i/2)]
-            # print(intdict[te[i+1]], te[i+1])
+            print(intdict[te[i+1]], te[i+1])
+            if '/' in intdict[te[i+1]]:
+                sp.append(float(intdict[te[i+1]].split('/')[0])*10)
+                print(float(sp[0]) * 10)
+            elif '%' in intdict[te[i+1]]:
+                sp.append(float(intdict[te[i+1]].split('%')[0]))
+                print(float(sp[0]))
+
             # print("")
         except LookupError:
             print("")
+        try:
+            intdict['score'] = sum(sp)/len(sp)
+        except:
+            intdict['score'] = 0
     # print(intdict)
+    intdict['...'] = ' '
     finlist.append(intdict)
 
 
-x = check_output(r'dir "C:\Users\joelm\Downloads\ENTERTAINMENT\MOVIES\test" /B ', shell=True).decode()
+x = check_output(r'ls "/media/jmarc/New Volume/ENTERTAINMENT/MOVIES"', shell=True).decode()
 y = x.split('\n')
 y = [x for x in y if x != '']
-# print(x)
-# print(y)
+print(x)
+print(y)
 for i in y:
     popt(i)
 
-# print(finlist)
+
+finlist = sorted(finlist, key=lambda x: x['score'], reverse=True)
+
+print(finlist)
 
 # for k in finlist:
 #     for za, zu in k.items():
